@@ -1,6 +1,7 @@
 
 var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
+    terrain:null,
     ctor:function () {
         //////////////////////////////
         // 1. super init first
@@ -31,6 +32,9 @@ var HelloWorldLayer = cc.Layer.extend({
         });
         this.addChild(this.sprite, 0);
 
+        this.terrain = Terrain.createWithSpace();
+        this.addChild(this.sprite, 0);
+
         return true;
     }
 });
@@ -42,4 +46,3 @@ var HelloWorldScene = cc.Scene.extend({
         this.addChild(layer);
     }
 });
-
