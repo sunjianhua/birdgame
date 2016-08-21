@@ -1,5 +1,6 @@
 var res = {
-    HelloWorld_png : "res/HelloWorld.png",
+    TerrainT_png : "res/terrainT.png",
+    TinySeal_plist : "res/TinySeal.plist"
 };
 
 var g_resources = [];
