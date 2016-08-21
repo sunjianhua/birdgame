@@ -29,6 +29,8 @@ Terrain = cc.GLNode || cc.Node.extend({
     },
 
     init: function (spaceObj) {
+        this._space = spaceObj;
+        
         this._renderCmd._needDraw = true;
         this._renderCmd._matrix = new cc.math.Matrix4();
         this._renderCmd._matrix.identity();
@@ -59,6 +61,8 @@ Terrain = cc.GLNode || cc.Node.extend({
     },
 
     draw: function (ctx) {
+        this._super();
+
         this.shader.use();
         this.shader.setUniformsForBuiltins();
 
@@ -197,7 +201,34 @@ Terrain = cc.GLNode || cc.Node.extend({
             this._prevFromKeyPointI = this._fromKeyPointI;
             this._prevToKeyPointI = this._toKeyPointI;
 
-            // this.resetTerrain()
+            this.resetPhysicsTerrain();
+        }
+    },
+
+    resetPhysicsTerrain: function () {
+        var space = this._space;
+        var shapeList = [];
+        if (this.terrainBody) {
+            this.terrainBody.eachShape(function (shapeObj) { shapeList.push(shapeObj); })
+            for (var i = 0, len = shapeList.length; i < len; i++) {
+                space.removeStaticShape(shapeList[i]);
+            }
+        }
+
+        this.terrainBody = new cp.Body(Infinity, Infinity);
+        this.terrainBody.nodeIdleTime = Infinity;
+
+        var p1 = cp.v(0, 0);
+        var p2 = cp.v(0, 0);
+        for (var i = 0; i < this._nBorderVertices - 1; i++) {
+            p1.x = this._borderVertices[i].x;
+            p1.y = this._borderVertices[i].y;
+            p2.x = this._borderVertices[i + 1].x;
+            p2.y = this._borderVertices[i + 1].y;
+            var floor = space.addStaticShape(new cp.SegmentShape(this.terrainBody, p1, p2, 0));
+            floor.setElasticity(1);
+            floor.setFriction(1);
+            floor.setLayers(NOT_GRABABLE_MASK);
         }
     },
 

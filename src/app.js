@@ -1,27 +1,37 @@
 
 var HelloWorldLayer = cc.Layer.extend({
-    sprite:null,
-    terrain:null,
-    ctor:function () {
-        //////////////////////////////
-        // 1. super init first
+    _terrain: null,
+    _space: null,
+    _bird: null,
+
+    ctor: function () {
         this._super();
 
-        /////////////////////////////
-        // 2. add a menu item with "X" image, which is clicked to quit the program
-        //    you may modify it.
-        // ask the window size
-        var size = cc.winSize;
+        this.setupSpace();
 
-        this.terrain = Terrain.createWithSpace();
-        this.addChild(this.terrain, 0);
+        this._terrain = Terrain.createWithSpace(this._spac);
+        this.addChild(this._terrain, 0);
+
+        this._bird = Bird.createWithSpace(this._space);
+        this.addChild(this._bird, 0);
 
         return true;
+    },
+
+    setupSpace: function () {
+        this._space = new cp.Space();
+        this._space.gravity = cp.v(0, -100);
+        this._space.sleepTimeThreshold = 0.5;
+        this._space.collisionSlop = 0.5;
+
+        //this._debugNode = new cc.PhysicsDebugNode(this._space);
+        //this._debugNode.visible = false;
+        //this.addChild(this._debugNode, 12);
     }
 });
 
 var HelloWorldScene = cc.Scene.extend({
-    onEnter:function () {
+    onEnter: function () {
         this._super();
         var layer = new HelloWorldLayer();
         this.addChild(layer);
