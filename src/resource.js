@@ -1,5 +1,6 @@
 var res = {
     TerrainT_png : "res/terrainT.png",
+    TinySeal_png : "res/TinySeal.png",
     TinySeal_plist : "res/TinySeal.plist"
 };
 

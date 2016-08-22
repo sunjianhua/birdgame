@@ -1,3 +1,6 @@
+var GRABABLE_MASK_BIT = 1<<31;
+var NOT_GRABABLE_MASK = ~GRABABLE_MASK_BIT;
+
 Terrain = cc.GLNode || cc.Node.extend({
     _kMaxHillKeyPoints: 1000,
     _kHillSegmentWidth: 10,
@@ -22,15 +25,16 @@ Terrain = cc.GLNode || cc.Node.extend({
 
     _texture2d: null,
     _space: null,
+    _terrainBody: null,
 
     ctor: function (spaceObj) {
         this._super();
-        this.init();
+        this.init(spaceObj);
     },
 
     init: function (spaceObj) {
         this._space = spaceObj;
-        
+
         this._renderCmd._needDraw = true;
         this._renderCmd._matrix = new cc.math.Matrix4();
         this._renderCmd._matrix.identity();
@@ -208,15 +212,15 @@ Terrain = cc.GLNode || cc.Node.extend({
     resetPhysicsTerrain: function () {
         var space = this._space;
         var shapeList = [];
-        if (this.terrainBody) {
-            this.terrainBody.eachShape(function (shapeObj) { shapeList.push(shapeObj); })
+        if (this._terrainBody) {
+            this._terrainBody.eachShape(function (shapeObj) { shapeList.push(shapeObj); })
             for (var i = 0, len = shapeList.length; i < len; i++) {
                 space.removeStaticShape(shapeList[i]);
             }
+        } else {
+            this._terrainBody = new cp.Body(Infinity, Infinity);
+            this._terrainBody.nodeIdleTime = Infinity;
         }
-
-        this.terrainBody = new cp.Body(Infinity, Infinity);
-        this.terrainBody.nodeIdleTime = Infinity;
 
         var p1 = cp.v(0, 0);
         var p2 = cp.v(0, 0);
@@ -225,7 +229,7 @@ Terrain = cc.GLNode || cc.Node.extend({
             p1.y = this._borderVertices[i].y;
             p2.x = this._borderVertices[i + 1].x;
             p2.y = this._borderVertices[i + 1].y;
-            var floor = space.addStaticShape(new cp.SegmentShape(this.terrainBody, p1, p2, 0));
+            var floor = space.addStaticShape(new cp.SegmentShape(this._terrainBody, p1, p2, 0));
             floor.setElasticity(1);
             floor.setFriction(1);
             floor.setLayers(NOT_GRABABLE_MASK);

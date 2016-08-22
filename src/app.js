@@ -9,7 +9,7 @@ var HelloWorldLayer = cc.Layer.extend({
 
         this.setupSpace();
 
-        this._terrain = Terrain.createWithSpace(this._spac);
+        this._terrain = Terrain.createWithSpace(this._space);
         this.addChild(this._terrain, 0);
 
         this._bird = Bird.createWithSpace(this._space);
