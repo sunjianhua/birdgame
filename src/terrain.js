@@ -1,4 +1,4 @@
-var GRABABLE_MASK_BIT = 1<<31;
+var GRABABLE_MASK_BIT = 1 << 31;
 var NOT_GRABABLE_MASK = ~GRABABLE_MASK_BIT;
 
 Terrain = cc.GLNode || cc.Node.extend({
