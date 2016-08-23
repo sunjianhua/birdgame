@@ -82,7 +82,7 @@ Terrain = cc.GLNode || cc.Node.extend({
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, this._nHillVertices / 2);
 
-        gl.bindTexture(gl.TEXTURE_2D, null);
+        // gl.bindTexture(gl.TEXTURE_2D, null);
         gl.bindBuffer(gl.ARRAY_BUFFER, null);
     },
 
