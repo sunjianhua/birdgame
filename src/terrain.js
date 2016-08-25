@@ -62,6 +62,13 @@ Terrain = cc.GLNode || cc.Node.extend({
 
         this.generateHills();
         this.resetHillVertices();
+
+        // 如果把这个去掉，滑行的动物就不会显示，这个是3.12版本的BUG
+        var winSize = cc.director.getWinSize();
+        var label = new cc.LabelTTF("点击屏幕开始", "Arial", 16);
+        this.addChild(label, 100);
+        label.x = 0;
+        label.y = winSize.height - 50;;
     },
 
     draw: function (ctx) {

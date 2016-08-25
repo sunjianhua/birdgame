@@ -47,7 +47,7 @@ Bird = cc.Sprite.extend({
             }
 
             var angle = cc.pToAngle(weightedVel);
-            this.setRotation(-1 * cc.radiansToDegress(angle));
+            this.setRotation(-1 * cc.radiansToDegrees(angle));
         }
     },
 
