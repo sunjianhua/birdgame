@@ -7,6 +7,8 @@ Bird = cc.Sprite.extend({
     _body: null,
     _awake: false,
 
+    _normalAnim: null,
+
     ctor: function (spaceObj) {
         this._super("#seal1.png");
         this.init(spaceObj);
@@ -27,6 +29,17 @@ Bird = cc.Sprite.extend({
         for (var i = 0; i < this.NUM_PREV_VELS; ++i) {
             this._prevVels[i] = cc.p();
         }
+        //
+        var animFrames = [];
+        var str = "";
+        var frame;
+        for (var i = 1; i <= 2; i++) {
+            str = "seal" +  i + ".png";
+            frame = cc.spriteFrameCache.getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+
+        this._normalAnim = new cc.Animation(animFrames, 0.3);
     },
 
     update: function (dt) {
@@ -54,6 +67,8 @@ Bird = cc.Sprite.extend({
     wake: function () {
         this._awake = true;
         this._body.applyImpulse(cc.p(1, 2), this.getPosition())
+
+        this.runAction(cc.animate(this._normalAnim).repeatForever());
     },
 
     getAwake: function () {
