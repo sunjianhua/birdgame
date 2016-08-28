@@ -49,7 +49,7 @@
 
 方法3不需要额外做操作，并且调试和开发功能强大，但是对配置要求高，个人机器可能配置不高，Webstorm打开要几分钟，开发和调试都缓慢的反应，让开发趣味低很多，于是换到了方法2，下面列下方法2的环境配置。
 
-> 注意：这是配置cocos2d-x JS的开发环境，cocos2d-x JSB的调试环境配置可以参考这个文章：[Use VSCode to debug cocos2d-x JSB programs][2]
+> 注意：这是配置cocos2d-x JS的开发环境，cocos2d-x JSB的调试环境配置可以参考这个文章：[Use VSCode to debug cocos2d-x JSB programs](http://discuss.cocos2d-x.org/t/use-vscode-to-debug-cocos2d-x-jsb-programs/27588)
 
 1. 下载Visual Studio Code 安装
 2. 下载chrome 安装
@@ -71,24 +71,29 @@
 
 >额外
 
->方便规范化代码格式，可以安装ESLint，具体设置可以参考这个文章：[Visual Studio Code 使用 ESLint 增强代码风格检查][6]
+>方便规范化代码格式，可以安装ESLint，具体设置可以参考这个文章：[Visual Studio Code 使用 ESLint 增强代码风格检查](http://www.cnblogs.com/IPrograming/p/VsCodeESLint.html)
 
 > 如果是用cocos run -p web来启动服务，可以不用安装htthttp-server
 
 ##代码部分
-代码地址：[https://github.com/sunjianhua/birdgame.git][7]，这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git][8]覆盖就可以。
+代码地址：[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)，这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)覆盖就可以。
 
 代码处理好后，运行项目（cocos run -p web），会看到如下效果
+
 ![birdgame.gif-957.2kB](./birdgame.gif)
 
 因为项目是从cocos2d-x 2.14 移植到cocos2d-js 3.12，除了
 
 运行环境（应用程序转为网页）
+
 编程语言（从c++转为javascript）
+
 物理引擎（从box2d转为chipmunk)、
+
 引擎版本（从2.14转为3.12）
 
 有调整外，项目整体的设计和函数的命名基本没有变化，并且先前一些人写的文章，已经很详尽就不在此重复，可以去看下面文章：
+
 [How To Create A Game Like Tiny Wings with Cocos2D 2.X](https://www.raywenderlich.com/32958/how-to-create-a-game-like-tiny-wings-with-cocos2d-2-x-part-2)
 [（译）如何制作一个类似tiny wings的游戏](http://www.cnblogs.com/zilongshanren/archive/2011/07/01/2095489.html)
 [如何制作一个类似Tiny Wings的游戏(2) Cocos2d-x 2.1.4](http://blog.csdn.net/akof1314/article/details/9293797)
