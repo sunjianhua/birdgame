@@ -57,14 +57,13 @@
 8. 在Debugger for Chrome安装完成，按提示重启Visual Studio Code
 9. 用Visual Studio Code的【打开文件夹】菜单项，打开你创建项目的根目录
 10. 切换到调试，配置你的调试环境，非常方便，就点三下，流程如下图
-    ![sp160812_083949.png-28.9kB][3]
+    ![sp160812_083949.png-28.9kB](http://77l5c3.com1.z0.glb.clouddn.com/sp160812_083949.png)
 11. 现在开发环境的调试也配置好了，一个http服务器也在运行，还缺少最后一个配置
 12. 给Chrome建立一个桌面的快捷方式，在目标设置的最后，添加如下： --remote-debugging-port=9222
-    ![sp160812_085353.png-16.6kB][4]
+    ![sp160812_085353.png-16.6kB](http://77l5c3.com1.z0.glb.clouddn.com/sp160812_085353.png)
 13. 点设置好的chrome快捷方式，启动一个Chrome窗口
 14. 切换到Visual Studio Code应用，执行Start Debugging(F5)
-
-![sp160812_084259.png-90.2kB](http://77l5c3.com1.z0.glb.clouddn.com/sp160812_084259.png)
+    ![sp160812_084259.png-90.2kB](http://77l5c3.com1.z0.glb.clouddn.com/sp160812_084259.png)
 
 >额外
 
@@ -76,7 +75,7 @@
 代码地址：[https://github.com/sunjianhua/birdgame.git][7]，这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git][8]覆盖就可以。
 
 代码处理好后，运行项目（cocos run -p web），会看到如下效果
-![birdgame.gif-957.2kB][9]
+![birdgame.gif-957.2kB](http://77l5c3.com1.z0.glb.clouddn.com/birdgame.gif)
 
 因为项目是从cocos2d-x 2.14 移植到cocos2d-js 3.12，除了
 
@@ -93,7 +92,7 @@
 ##额外
 1. 初始创建的项目是没有包含物理引擎的，需要在project.json里把物理模块指定一下
 2. 新增加的文件也是要在project.json里指定
-![config.png-67.5kB][10]
+![config.png-67.5kB](http://77l5c3.com1.z0.glb.clouddn.com/config.png)
 
 
 
