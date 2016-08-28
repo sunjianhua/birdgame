@@ -16,6 +16,7 @@
 原教程用的是box2d 物理引擎，因为想在浏览器和手机上运行，而cocos2d-x jsb的物理引擎接口只有Chipmunk？就把物理引擎换为了Chipmunk
 
 通过这个文章和代码可以了解到
+
 1. cocos 设置
 2. cocos2d-js 项目创建和运行
 3. cocos2d-js 开发环境设置
@@ -76,7 +77,9 @@
 > 如果是用cocos run -p web来启动服务，可以不用安装htthttp-server
 
 ##代码部分
-代码地址：[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)，这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)覆盖就可以。
+代码地址：[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)
+
+这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git](https://github.com/sunjianhua/birdgame.git)覆盖就可以。
 
 代码处理好后，运行项目（cocos run -p web），会看到如下效果
 
@@ -95,7 +98,9 @@
 有调整外，项目整体的设计和函数的命名基本没有变化，并且先前一些人写的文章，已经很详尽就不在此重复，可以去看下面文章：
 
 [How To Create A Game Like Tiny Wings with Cocos2D 2.X](https://www.raywenderlich.com/32958/how-to-create-a-game-like-tiny-wings-with-cocos2d-2-x-part-2)
+
 [（译）如何制作一个类似tiny wings的游戏](http://www.cnblogs.com/zilongshanren/archive/2011/07/01/2095489.html)
+
 [如何制作一个类似Tiny Wings的游戏(2) Cocos2d-x 2.1.4](http://blog.csdn.net/akof1314/article/details/9293797)
 
 ##额外
