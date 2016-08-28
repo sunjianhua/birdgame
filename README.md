@@ -75,7 +75,7 @@
 代码地址：[https://github.com/sunjianhua/birdgame.git][7]，这个是没有包含cocos2d-js运行库的，可以用上面讲到的方式，创建一个cocos2d-js的新项目（cocos new 你的工程名 -p 你工程的包名 -d 你工程的存放目录 -l js），把对应的文件用[https://github.com/sunjianhua/birdgame.git][8]覆盖就可以。
 
 代码处理好后，运行项目（cocos run -p web），会看到如下效果
-![birdgame.gif-957.2kB](http://77l5c3.com1.z0.glb.clouddn.com/birdgame.gif)
+![birdgame.gif-957.2kB](./birdgame.gif)
 
 因为项目是从cocos2d-x 2.14 移植到cocos2d-js 3.12，除了
 
