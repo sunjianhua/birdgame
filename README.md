@@ -64,7 +64,7 @@
 13. 点设置好的chrome快捷方式，启动一个Chrome窗口
 14. 切换到Visual Studio Code应用，执行Start Debugging(F5)
 
-![sp160812_084259.png-90.2kB][5]
+![sp160812_084259.png-90.2kB][http://77l5c3.com1.z0.glb.clouddn.com/sp160812_084259.png]
 
 >额外
 
